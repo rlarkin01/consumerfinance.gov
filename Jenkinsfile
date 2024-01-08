@@ -21,7 +21,7 @@ pipeline {
                             new File("./requirements.txt").withWriter { f_out -> 
                                 def f_in = readFile(file: './requirements/deployment.txt')
                                 f_in.eachLine { String line ->
-                                  if line.substring(0,3) == "-r " {
+                                  if (line.substring(0,3) == "-r ") {
                                     f_out.println "-r requirements/${line.substring(3)}"
                                   } else {
                                     f_out.println line
