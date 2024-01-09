@@ -3,11 +3,13 @@
  */
 
 pipeline {
-    agent any
-
-    environment {
-        NPM_CONFIG_CACHE = "${WORKSPACE}/.npm"
+    agent {
+        docker { image 'node:8.11' }
     }
+
+    // environment {
+    //     NPM_CONFIG_CACHE = "${WORKSPACE}/.npm"
+    // }
 
     options {
         // only keep the last x build logs and artifacts (for space saving)
@@ -17,7 +19,6 @@ pipeline {
     stages{
         stage ('Prep') {
             steps {
-                sh "sudo chown -R ubuntu:ubuntu .npm-global"
                 sh "npm install -g yarn"
             }
         }
