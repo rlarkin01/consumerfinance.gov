@@ -17,6 +17,7 @@ pipeline {
     stages{
         stage ('Prep') {
             steps {
+                sh "sudo chown -R ubuntu:ubuntu .npm-global"
                 sh "npm install -g yarn"
             }
         }
