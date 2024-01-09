@@ -3,9 +3,7 @@
  */
 
 pipeline {
-    agent {
-        docker { image 'node:8.11' }
-    }
+    agent any
 
     // environment {
     //     NPM_CONFIG_CACHE = "${WORKSPACE}/.npm"
@@ -19,7 +17,7 @@ pipeline {
     stages{
         stage ('Prep') {
             steps {
-                sh "npm install -g yarn"
+                npm "install -g yarn"
             }
         }
         
