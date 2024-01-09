@@ -52,7 +52,7 @@ pipeline {
                             // }
 
                             sh "echo '-r requirements/deployment.txt' > requirements.txt"
-                            // sh "curl -sSL https://download.sourceclear.com/ci.sh | sh"
+                            sh "curl -sSL https://download.sourceclear.com/ci.sh | sh"
 
 
                             
