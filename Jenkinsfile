@@ -27,7 +27,7 @@ pipeline {
                             // yarn "init -y"
                             
                             sh "echo '-r requirements/deployment.txt' > requirements.txt"
-                            sh "export SRCCLR_SKIP_COLLECTORS=yarn"
+                            sh "echo 'skip_collectors: \"yarn\"' > srcclr.yml"
                             sh "curl -sSL https://download.sourceclear.com/ci.sh | sh"
 
                             // debug, no upload
