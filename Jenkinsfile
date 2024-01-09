@@ -15,11 +15,11 @@ pipeline {
     }
 
     stages{
-        stage ('Prep') {
-            steps {
-                npm "install -g yarn"
-            }
-        }
+        // stage ('Prep') {
+        //     steps {
+        //         npm "install -g yarn"
+        //     }
+        // }
         
         stage ('Veracode SCA') {
             steps {
