@@ -5,6 +5,10 @@
 pipeline {
     agent any
 
+    environment {
+        NPM_CONFIG_CACHE = "${WORKSPACE}/.npm"
+    }
+
     options {
         // only keep the last x build logs and artifacts (for space saving)
         buildDiscarder(logRotator(numToKeepStr: '20', artifactNumToKeepStr: '20'))
