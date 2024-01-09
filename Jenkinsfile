@@ -28,9 +28,8 @@ pipeline {
                             
                             sh "echo '-r ./requirements/deployment.txt' > requirements.txt"
                             sh "echo 'skip_collectors: \"yarn\"' > srcclr.yml"
-                            // sh "curl -sSL https://download.sourceclear.com/ci.sh | sh"
-                            sh "sudo apt-get install libpq-dev python-dev"
-                            sh "pip install -r requirements.txt"
+                            sh "curl -sSL https://download.sourceclear.com/ci.sh | sh"
+                            // sh "pip install -r requirements.txt"
 
                             // debug, no upload
                             //sh "curl -sSL https://download.sourceclear.com/ci.sh | DEBUG=1 sh -s -- scan --no-upload"
