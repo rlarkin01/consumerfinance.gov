@@ -27,7 +27,8 @@ pipeline {
                 withCredentials([ string(credentialsId: 'SCA_Token', variable: 'SRCCLR_API_TOKEN')]) {
                     withMaven(maven:'maven-3') {
                         script {
-                            npm "install -g yarn"
+                            // npm "install -g yarn"
+                            yarn "init -y"
                             
                             sh "echo '-r requirements/deployment.txt' > requirements.txt"
                             sh "curl -sSL https://download.sourceclear.com/ci.sh | sh"
