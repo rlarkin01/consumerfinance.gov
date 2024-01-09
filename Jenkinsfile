@@ -26,7 +26,7 @@ pipeline {
                             // npm 'install -g yarn'
                             // yarn "init -y"
                             
-                            sh "echo '-r requirements/deployment.txt' > requirements.txt"
+                            sh "echo '-r ./requirements/deployment.txt' > requirements.txt"
                             sh "echo 'skip_collectors: \"yarn\"' > srcclr.yml"
                             sh "curl -sSL https://download.sourceclear.com/ci.sh | sh"
 
