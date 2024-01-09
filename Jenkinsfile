@@ -5,10 +5,6 @@
 pipeline {
     agent any
 
-    // environment {
-    //     NPM_CONFIG_CACHE = "${WORKSPACE}/.npm"
-    // }
-
     options {
         // only keep the last x build logs and artifacts (for space saving)
         buildDiscarder(logRotator(numToKeepStr: '20', artifactNumToKeepStr: '20'))
@@ -28,7 +24,7 @@ pipeline {
                     withMaven(maven:'maven-3') {
                         script {
                             // npm "install -g yarn"
-                            yarn "init -y"
+                            // yarn "init -y"
                             
                             sh "echo '-r requirements/deployment.txt' > requirements.txt"
                             sh "curl -sSL https://download.sourceclear.com/ci.sh | sh"
