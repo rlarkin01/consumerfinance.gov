@@ -12,7 +12,9 @@ pipeline {
 
     stages{
         stage ('Prep') {
-            sh "npm install -g yarn"
+            steps {
+                sh "npm install -g yarn"
+            }
         }
         
         stage ('Veracode SCA') {
