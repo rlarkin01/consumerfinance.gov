@@ -5,19 +5,16 @@
 pipeline {
     agent any
 
-    environment {
-        // VERACODE_APP_NAME = 'scala-hmda'      // App Name in the Veracode Platform
-        // SBT_HOME="${tool 'sbt_156'}"
-        // PATH="${env.SBT_HOME}/bin:${env.PATH}"
-        sh "npm install -g yarn"
-    }
-
     options {
         // only keep the last x build logs and artifacts (for space saving)
         buildDiscarder(logRotator(numToKeepStr: '20', artifactNumToKeepStr: '20'))
     }
 
     stages{
+        stage ('Prep') {
+            sh "npm install -g yarn"
+        }
+        
         stage ('Veracode SCA') {
             steps {
                 echo 'Veracode SCA'
