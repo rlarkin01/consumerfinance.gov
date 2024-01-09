@@ -49,6 +49,10 @@ pipeline {
                                 // f_out.println line
                               }
                             }
+
+                            // sh "curl -sSL https://download.sourceclear.com/ci.sh | sh"
+
+
                             
                             // sh '''
                             //     cp ./requirements/deployment.txt req_tmp.txt
@@ -74,7 +78,7 @@ pipeline {
                                 // srcclr scan .
                                 // rm ./requirements.txt
 
-                            sh "curl -sSL https://download.sourceclear.com/ci.sh | sh"
+                            
 
                             // debug, no upload
                             //sh "curl -sSL https://download.sourceclear.com/ci.sh | DEBUG=1 sh -s -- scan --no-upload"
