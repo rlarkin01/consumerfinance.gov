@@ -38,18 +38,20 @@ pipeline {
                             //       }
                             //     }
                             // }
-                           
-                            def f_in = readFile(file: './requirements/deployment.txt')
-                            f_in.eachLine { String line ->
-                              if (line.substring(0,3) == "-r ") {
-                                  sh "echo '-r requirements/${line:3}' >> requirements.txt"
-                                // f_out.println "-r requirements/${line.substring(3)}"
-                              } else {
-                                  sh "echo $line >> requirements.txt"
-                                // f_out.println line
-                              }
-                            }
 
+                            
+                            // def f_in = readFile(file: './requirements/deployment.txt')
+                            // f_in.eachLine { String line ->
+                            //   if (line.substring(0,3) == "-r ") {
+                            //       sh "echo '-r requirements/${line:3}' >> requirements.txt"
+                            //     // f_out.println "-r requirements/${line.substring(3)}"
+                            //   } else {
+                            //       sh "echo $line >> requirements.txt"
+                            //     // f_out.println line
+                            //   }
+                            // }
+
+                            sh "echo '-r requirements/deployment.txt' > requirements.txt"
                             // sh "curl -sSL https://download.sourceclear.com/ci.sh | sh"
 
 
