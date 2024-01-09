@@ -27,7 +27,7 @@ pipeline {
                             // yarn "init -y"
                             
                             sh "echo '-r requirements/deployment.txt' > requirements.txt"
-                            sh "export SRCCLR_SCAN_COLLECTORS=pip"
+                            sh "export SRCCLR_SKIP_COLLECTORS=yarn"
                             sh "curl -sSL https://download.sourceclear.com/ci.sh | sh"
 
                             // debug, no upload
