@@ -29,6 +29,9 @@ pipeline {
                             sh "echo '-r ./requirements/deployment.txt' > requirements.txt"
                             sh "echo 'skip_collectors: \"yarn\"' > srcclr.yml"
                             // sh "curl -sSL https://download.sourceclear.com/ci.sh | sh"
+                            // # install psycopg2 dependencies
+                            sh "apk update"
+                            sh "apk add postgresql-dev gcc python3-dev musl-dev"
                             sh "pip install -r requirements.txt"
 
                             // debug, no upload
